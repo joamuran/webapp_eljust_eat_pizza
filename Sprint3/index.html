@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria</title>
+</head>
+
+<body>
+
+
+
+    <scaffold-component>
+        <h2 slot="header">Benvingut a la pizzeria</h2>
+
+        <tab-component slot="content">
+            <button slot="tabs" class="tab">Pizzes</button>
+            <button slot="tabs" class="tab">Entrants</button>
+            <button slot="tabs" class="tab"><carret-status-component></carret-status-component></button>
+        
+            <div slot="contents">
+                <div id="llista-pizzes" >
+                    <!-- Les pizzes s'inseriran ací -->
+                </div>
+                <div id="llista-entrants">
+                    <!-- Els entrants s'inseriran ací -->
+
+                </div>
+                <div id="carret-comanda">
+                    <carret-component></carret-component>
+                </div>
+            </div>
+        </tab-component>
+
+
+    </scaffold-component>
+    <script type="module" src="./js/main.js" defer></script>
+</body>
+
+</html>
