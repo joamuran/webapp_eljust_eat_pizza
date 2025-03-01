@@ -37,19 +37,16 @@ export class PizzeriaService {
         const dadesPG = await resposta.json();
         const dades=dadesPG.records;
 
-        // Llista de pizzes
+        // Llista d'entrants
         const entrants = [];
 
-        // Recorrem les dades i generem la llista de pizzes
+        // Recorrem les dades i generem la llista d'entrants
         for (let i = 0; i < dades.length; i++) {
             const entrant = new Entrant(dades[i]);
             entrants.push(entrant);
         }
 
         return entrants;
-
-        // Nota: Aquest últin bucle es podria haver simplificat amb 
-        //       una funció de mapat: return dades.map(d => new Pizza(d));
         
     }
 }
