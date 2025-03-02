@@ -17,7 +17,8 @@ class CounterComponent extends BaseComponent {
     }
 
 
-    // NOU: PER COMENTAR
+    // Proporcionem una refrència al producte i al carret
+
     setProducte(producte, carret) {
         this.producte = producte;
         this.carret = carret;
@@ -36,12 +37,21 @@ class CounterComponent extends BaseComponent {
         this.decrementCallback = decrementCallback;
     }
 
-    // NOU: PER COMENTAR
+    // Aquest mètode actualitza el valo del comptador 
     update() {
         if (!this.carret || !this.producte) return;
 
         // Busquem el producte dins del carret
-        const elementCarret = this.carret.elements.find(e => e.producte.id === this.producte.id);
+        let elementCarret = null;
+
+        for (let item of this.carret.elements) {
+            if (item.producte.id === this.producte.id) {
+                elementCarret = item;
+                break;
+            }
+        }
+        // Si l'elementCarret no és nul, posem posem la quantitat, 
+        // i si no, posem 0
         this.count = elementCarret ? elementCarret.quantitat : 0;
 
         // Actualitzem el comptador
@@ -102,15 +112,19 @@ class CounterComponent extends BaseComponent {
     };
 }
 
-    /*afigProducte() {
-        this.count++;
-        this.shadowRoot.querySelector('.counter-value').textContent = this.count;
-    }
+/*
+ 
+// Aquest era el mecanisme anterior: Reactivitat a nivell de component, però no global
 
-    eliminaProducte() {
-        if (this.count>0) this.count--;
-        this.shadowRoot.querySelector('.counter-value').textContent = this.count;
-    }*/
+afigProducte() {
+    this.count++;
+    this.shadowRoot.querySelector('.counter-value').textContent = this.count;
+}
+
+eliminaProducte() {
+    if (this.count>0) this.count--;
+    this.shadowRoot.querySelector('.counter-value').textContent = this.count;
+}*/
 
 
 // Registrar el component

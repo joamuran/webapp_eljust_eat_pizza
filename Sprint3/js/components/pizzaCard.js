@@ -50,7 +50,7 @@ class PizzaCard extends CardComponent {
 
         
         const counter = this.shadowRoot.querySelector("counter-component");
-        // NOU: PER COMENTAR
+        // Li proporcionem al counter-component el carret.
         counter.setProducte(this.producte, this.carret);
         
         counter.setCallbacks(
