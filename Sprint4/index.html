@@ -9,12 +9,14 @@
 
 <body>
     <scaffold-component>
-        <h2 slot="header">Benvingut a la pizzeria</h2>
+        <h2 slot="header">El Just Eat Pizza</h2>
 
         <tab-component slot="content">
             <button slot="tabs" class="tab">Pizzes</button>
             <button slot="tabs" class="tab">Entrants</button>
+            <button slot="tabs" class="tab">Begudes</button>
             <button slot="tabs" class="tab"><carret-status-component></carret-status-component></button>
+            <button slot="tabs" class="tab">Comandes</button>
 
             <div slot="contents">
                 <div id="llista-pizzes">
@@ -24,8 +26,15 @@
                     <!-- Els entrants s'inseriran ací -->
 
                 </div>
+                <div id="llista-begudes">
+                    <!-- Les begudes s'inseriran ací -->
+                </div>
                 <div id="carret-comanda">
                     <carret-component></carret-component>
+                </div>
+                
+                <div id="llista-comandes">
+                    <!-- L'històric de comandes va ací -->
                 </div>
             </div>
         </tab-component>
