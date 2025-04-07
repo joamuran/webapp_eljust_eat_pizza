@@ -10,9 +10,20 @@ class Carret extends EventTarget{
 
     constructor() {
         super(); // Invoquem el constructor de la classe pare
-        this.elements = []; // Guarda { producte, quantitat }
+        if (!this.instance) {
+            this.instance = this;
+            this.elements = []; // Guarda { producte, quantitat }
+      }
+
+      return this.instance;    
     }
 
+
+    static getInstance(){
+        return this.instance;
+    }
+    
+  
 
     notificaCanvis() {
         // Mètode que emet un event personalitzat amb l'estat del carret

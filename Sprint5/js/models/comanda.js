@@ -1,7 +1,3 @@
-import { Entrant } from "./entrant.js";
-import { Beguda } from "./beguda.js";
-import { Pizza } from "./pizza.js";
-
 export class Comanda {    
     // Constructor amb desestructuració
     constructor(items, preu, hora, num){

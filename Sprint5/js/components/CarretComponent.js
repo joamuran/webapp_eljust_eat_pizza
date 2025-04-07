@@ -89,7 +89,6 @@ class CarretComponent extends BaseComponent {
         this.carret.addEventListener("carretActualitzat", () => this.update());
 
         this.shadowRoot.querySelector("#sendOrder").addEventListener("click", async () => {
-            console.log(this.carret.elements);
             let resposta = await PizzeriaService.sendOrder(this.carret.elements);
             if (resposta.confirmed) {
                 let msg="Ordre confirmada<br/>Comanda nº: "+resposta.order+"<br/>Hora prevista: "+resposta.time;
@@ -97,6 +96,7 @@ class CarretComponent extends BaseComponent {
 
                 // Creem una nova comanda pe a l'històric
                 let com=new Comanda(this.carret.elements, this.carret.calcularPreuTotal(), resposta.time, resposta.order)
+                console.log(com.toString());
 
                 // Generem la targeta corresponent            
                 let comandaItem=new CardComandaItem(com);
